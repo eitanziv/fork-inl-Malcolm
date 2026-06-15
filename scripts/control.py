@@ -1125,7 +1125,7 @@ def logs():
     global orchMode
     global shuttingDown
 
-    finishedStartingRegEx = re.compile(r'.+Pipelines\s+running\s+\{.*:non_running_pipelines=>\[\]\}')
+    finishedStartingRegEx = re.compile(r'.+Pipelines\s+running\s+\{.*non_running_pipelines:\s*\[\]\}')
 
     osEnv = os.environ.copy()
     # use local temporary path
@@ -3206,7 +3206,7 @@ def main():
         metavar='<string>',
         type=str,
         default=os.getenv('MALCOLM_IMAGE_TAG', None),
-        help='Tag for container images (e.g., "26.06.0"; only for "start" operation with Kubernetes)',
+        help='Tag for container images (e.g., "26.06.1"; only for "start" operation with Kubernetes)',
     )
     kubernetesGroup.add_argument(
         '--delete-namespace',
